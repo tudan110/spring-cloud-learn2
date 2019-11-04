@@ -5,6 +5,11 @@ spring:
   application:
     # 指定服务名
     name: app-zuul-gateway
+  security:
+    # 配置用户的账号信息
+    user:
+      name: tudan
+      password: 123456
   # 开启从 spring cloud config 配置中心读取配置
 #  cloud:
 #    config:
@@ -20,7 +25,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://zpc:123456@127.0.0.1:8100/eureka/,http://zpc:123456@127.0.0.1:9100/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@127.0.0.1:8100/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@127.0.0.1:9100/eureka/
     # 因为该应用为服务提供者，是 eureka 的一个客户端，需要注册到注册中心
     register-with-eureka: true
     # 是否需要从 eureka 上检索服务

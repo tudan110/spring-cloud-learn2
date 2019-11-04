@@ -1,4 +1,4 @@
-package indi.tudan.gateway.runner;
+package indi.tudan.gateway;
 
 import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
@@ -35,7 +35,7 @@ public class ApiGatewayApplication {
     }
 
     /**
-     * 配置Swagger
+     * 配置 Swagger
      */
     @Component
     @Primary
@@ -43,15 +43,16 @@ public class ApiGatewayApplication {
 
         @Override
         public List<SwaggerResource> get() {
-            List resource = new ArrayList<>();
-            //name可以随便写，location前缀要与zuul配置的path一致
+            List<SwaggerResource> resource = new ArrayList<>();
+
+            // name 可以随便写，location 前缀要与 zuul 配置的 path 一致
             resource.add(swaggerResource("myapp-commodity", "/item-service/v2/api-docs?token=1", "2.0"));
             resource.add(swaggerResource("myapp-order", "/order-service/v2/api-docs?token=1", "2.0"));
             return resource;
         }
 
         /**
-         * name可以随便写，location前缀要与zuul配置的path一致
+         * name 可以随便写，location 前缀要与 zuul 配置的 path 一致
          */
         private SwaggerResource swaggerResource(String name, String location, String version) {
             SwaggerResource swaggerResource = new SwaggerResource();
