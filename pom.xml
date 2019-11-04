@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>indi.tudan</groupId>
+    <artifactId>spring-cloud-learn2</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>spring-cloud-learn2</name>
+    <description>spring-cloud 学习</description>
+
+    <modules>
+        <module>spring-cloud-learn2-commodity</module>
+        <module>spring-cloud-learn2-order</module>
+        <module>spring-cloud-learn2-eureka-server1</module>
+        <module>spring-cloud-learn2-eureka-server2</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+</project>

@@ -1,0 +1,29 @@
+server:
+  port: 9100
+
+# 服务名称
+spring:
+  application:
+    name: app-eureka-center
+  security:
+    # 配置用户的账号信息
+    user:
+      name: tudan
+      password: 123456
+
+eureka:
+  instance:
+    # 注册中心地址
+    hostname: 127.0.0.1
+  # 客户端调用地址
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:8100/eureka/
+    # 因为该应用为注册中心，不需要注册自己（集群的时候为 true）
+    register-with-eureka: true
+    # 因为自己为注册中心 ,不会在该应用中的检索服务信息
+    fetch-registry: true
+  # 测试环境、开发环境可以关闭自我保护机制，保证服务不可用时及时剔除
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000
