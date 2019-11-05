@@ -1,5 +1,6 @@
 server:
   port: 7788
+
 spring:
   application:
     # 指定服务名

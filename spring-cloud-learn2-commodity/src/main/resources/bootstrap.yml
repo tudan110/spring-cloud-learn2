@@ -1,8 +1,6 @@
-# 服务端口号(本身是一个 web 项目)
 server:
   port: 8081
 
-# 起个名字作为服务名称(该服务注册到 eureka 注册中心的名称，比如商品服务)
 spring:
   application:
     name: app-commodity
@@ -11,6 +9,18 @@ spring:
     user:
       name: tudan
       password: 123456
+  cloud:
+    config:
+      # 对应配置中心的应用名称，默认是本应用名，即 spring.application.name,该名称要和 git 中的配置一致
+      name: ${spring.application.name}
+      #uri: http://127.0.0.1:7788/
+      profile: dev # 对应配置服务中的{profile}
+      label: master # 对应的分支
+      discovery:
+        # 启用发现服务功能
+        enabled: true
+        # 指定配置中心工程的名称
+        service-id: spring-cloud-learn2-config-server
 
 # 服务注册到 eureka 注册中心的地址
 eureka:
@@ -27,10 +37,3 @@ eureka:
     ip-address: 127.0.0.1
     # 指定实例 id
     instance-id: ${spring.application.name}###${server.port}
-
-# 开启所有端点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"

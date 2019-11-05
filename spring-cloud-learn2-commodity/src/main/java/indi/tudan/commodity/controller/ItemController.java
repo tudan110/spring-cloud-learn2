@@ -1,5 +1,6 @@
 package indi.tudan.commodity.controller;
 
+import indi.tudan.commodity.config.JdbcConfigBean;
 import indi.tudan.commodity.entity.Item;
 import indi.tudan.commodity.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
+    @Autowired
+    private JdbcConfigBean jdbcConfigBean;
+
     /**
      * 对外提供接口服务，查询商品信息
      *
@@ -27,6 +31,11 @@ public class ItemController {
     public Item queryItemById(@PathVariable("id") Long id) {
         System.out.println("service port：" + port);
         return this.itemService.queryItemById(id);
+    }
+
+    @GetMapping(value = "testConfig")
+    public String testconfig() {
+        return this.jdbcConfigBean.toString();
     }
 
 }
