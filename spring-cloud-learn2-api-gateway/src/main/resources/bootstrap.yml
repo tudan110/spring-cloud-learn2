@@ -2,7 +2,7 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://zpc:123456@127.0.0.1:8100/eureka/,http://zpc:123456@127.0.0.1:9100/eureka/
+      defaultZone: http://tudan:123456@127.0.0.1:8100/eureka/,http://tudan:123456@127.0.0.1:9100/eureka/
     # 因为该应用为服务提供者，是 eureka 的一个客户端，需要注册到注册中心
     register-with-eureka: true
     # 是否需要从 eureka 上检索服务
@@ -18,7 +18,7 @@ spring:
   cloud:
     config:
       # 对应配置中心的应用名称，默认是本应用名，即 spring.application.name,该名称要和 git 中的配置一致
-      name: service-zuul
+      name: app-zuul-gateway
       #uri: http://127.0.0.1:7788/
       # 对应配置服务中的 {profile}
       profile: dev
@@ -28,4 +28,4 @@ spring:
         # 启用发现服务功能
         enabled: true
         # 指定配置中心工程的名称
-        service-id: microservice-config-server
+        service-id: spring-cloud-learn2-config-server

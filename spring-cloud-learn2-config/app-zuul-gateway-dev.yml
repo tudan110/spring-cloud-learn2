@@ -1,0 +1,16 @@
+# 从配置中心加载配置
+zuul:
+  # 定义服务转发规则
+  routes:
+    # item-service 这个名字是任意写的
+    item-service:
+      # 匹配 item-service 的 url 路径请求 app-commodity 服务
+      path: /item-service/**
+      #url: http://127.0.0.1:8081 # 真正的微服务地址
+      serviceid: app-commodity
+    # 名字尽量和业务系统相关
+    order-service:
+      # 匹配 order-service 的 url 路径请求 app-order 服务
+      path: /order-service/**
+      # 指定 Eureka 注册中心的服务 id
+      serviceid: app-order
