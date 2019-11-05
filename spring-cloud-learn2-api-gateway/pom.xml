@@ -6,7 +6,7 @@
 
     <groupId>indi.tudan</groupId>
     <artifactId>spring-cloud-learn2-api-gateway</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>spring-cloud-learn2-api-gateway</name>
     <description>API 网关</description>
 
