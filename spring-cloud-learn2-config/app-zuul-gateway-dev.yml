@@ -7,7 +7,7 @@ zuul:
       # 匹配 item-service 的 url 路径请求 app-commodity 服务
       path: /item-service/**
       #url: http://127.0.0.1:8081 # 真正的微服务地址
-      serviceid: app-commodity1
+      serviceid: app-commodity
     # 名字尽量和业务系统相关
     order-service:
       # 匹配 order-service 的 url 路径请求 app-order 服务
